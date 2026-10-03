@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  ms-auth:
+    build: ./backend/ms_auth
+    ports:
+      - "8001:8001"
+    environment:
+      - DB_HOST=172.31.X.X # Colocar la IP Privada real de la MV BD
+      - DB_PORT=5432
+      - DB_USER=root
+      - DB_PASS=TuPasswordRoot
+      - DB_NAME=smartbuilding360_db
+
+  ms-residents:
+    build: ./backend/ms_residents
+    ports:
+      - "8002:8002"
+    environment:
+      - DB_HOST=172.31.X.X
+
+  ms-payments:
+    build: ./backend/ms_payments
+    ports:
+      - "8003:8003"
+    environment:
+      - DB_HOST=172.31.X.X
+
+  frontend:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
