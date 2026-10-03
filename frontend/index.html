@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBuilding360 - Administración de Condominios</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">🏢 SmartBuilding360</div>
+        <div id="user-session" class="user-info">
+            <button onclick="showSection('login-section')" class="btn-primary">Portal de Residentes</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SECCIÓN HOME -->
+        <section id="home-section" class="card">
+            <h1>Bienvenido a SmartBuilding360</h1>
+            <p>Plataforma integral para la administración cordial y eficiente de su edificio o condominio.</p>
+            
+            <div class="contact-box">
+                <h3>📞 Contacto Rápido</h3>
+                <p><strong>Emergencias 24/7:</strong> +51 999 888 777</p>
+                <p><strong>Correo:</strong> contacto@smartbuilding360.com</p>
+                <p><strong>Atención Presencial:</strong> Lun - Vie 8:00 AM - 5:00 PM</p>
+            </div>
+
+            <div class="announcements">
+                <h3>📢 Avisos Importantes</h3>
+                <ul>
+                    <li>Mantenimiento programado de ascensores: Torre A (15 de Octubre).</li>
+                    <li>Próxima Asamblea General de Propietarios vía Zoom el 28 de Octubre.</li>
+                </ul>
+            </div>
+
+            <div class="quick-links">
+                <h3>📑 Trámites Frecuentes</h3>
+                <button class="btn-secondary">Descargar Reglamento Interno</button>
+                <button class="btn-secondary">Permisos de Mudanza</button>
+                <button class="btn-secondary">Registrar Visitas</button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN LOGIN -->
+        <section id="login-section" class="card hidden">
+            <h2>Ingreso al Portal</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Usuario o Correo:</label>
+                    <input type="text" id="login-user" autocomplete="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-pass" autocomplete="current-password" required>
+                        <span onclick="togglePasswordVisibility()">👁️</span>
+                    </div>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox" id="remember-me"> Recordarme</label>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn-primary full-width">Iniciar Sesión</button>
+            </form>
+        </section>
+
+        <!-- SECCIÓN PAGOS (RESIDENTE) -->
+        <section id="payments-section" class="card hidden">
+            <h2>Pago de Mantenimiento en Línea</h2>
+            <div id="receipts-list"></div>
+            <div class="total-bar">
+                <h3>Monto Total a Pagar: S/ <span id="total-to-pay">0.00</span></h3>
+            </div>
+            
+            <form id="checkout-form" class="card-inner">
+                <h3>💳 Pasarela de Pago Simulada</h3>
+                <input type="text" id="card-number" placeholder="Número de Tarjeta (16 dígitos)" required>
+                <input type="text" id="card-holder" placeholder="Nombre en la Tarjeta" required>
+                <div class="form-inline">
+                    <input type="text" id="card-exp" placeholder="MM/AA" required>
+                    <input type="password" id="card-cvv" placeholder="CVV" maxlength="4" required>
+                </div>
+                <button type="submit" class="btn-success">Realizar Pago Seguir</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
